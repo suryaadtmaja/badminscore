@@ -69,8 +69,8 @@ const playerTwoState = computed(() => {
 </script>
 
 <template>
-  <div class="w-full bg-gray-100 dark:bg-slate-900 mx-auto container h-full">
-    <div class="h-screen w-full portrait:hidden flex flex-col justify-center items-center space-y-8">
+  <div class="w-full bg-gray-100 dark:bg-slate-900 mx-auto container min-h-screen">
+    <div class="h-screen w-full portrait:hidden flex flex-col justify-center items-center space-y-2">
       <button v-if="!gameState.start" class="bg-green-500 p-2 lg:w-1/5 w-1/4 rounded-full text-white text-center" @click="gameState.start = !gameState.start">
         Start
       </button>
@@ -95,22 +95,17 @@ const playerTwoState = computed(() => {
               </button>
             </div>
           </div>
-          <div class="h-48 lg:h-96 bg-yellow-500 rounded-lg w-2/3 flex items-center justify-center relative">
+          <div class="h-40 lg:h-96 bg-yellow-500 rounded-lg w-2/3 flex items-center justify-center relative">
             <h3 class="text-4xl font-bold text-center dark:text-white text-slate-900">
               {{ score.playerOne }}
             </h3>
-            <div v-if="playerOneState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-20">
-              <div class="w-8 h-8 text-white">
-                <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <p class="text-white text-xl font-bold">
+            <div v-if="playerOneState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-5">
+              <p class="text-white text-sm lg:text-xl font-bold">
                 {{ playerName.playerOne }} is the Winner
               </p>
             </div>
-            <div v-else-if="playerOneState.matchPoint && !playerOneState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-20">
-              <p class="text-white text-xl font-bold">
+            <div v-else-if="playerOneState.matchPoint && !playerOneState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-5">
+              <p class="text-white text-sm lg:text-xl font-bold">
                 Match Point
               </p>
             </div>
@@ -146,22 +141,17 @@ const playerTwoState = computed(() => {
               </button>
             </div>
           </div>
-          <div class="cursor-pointer h-48 lg:h-96 bg-blue-500 rounded-lg w-2/3 flex items-center justify-center relative">
+          <div class="cursor-pointer h-40 lg:h-96 bg-blue-500 rounded-lg w-2/3 flex items-center justify-center relative">
             <h3 class="text-4xl font-bold text-center text-white">
               {{ score.playerTwo }}
             </h3>
-            <div v-if="playerTwoState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-20">
-              <div class="w-8 h-8 text-white">
-                <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <p class="text-white text-xl font-bold">
+            <div v-if="playerTwoState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-5">
+              <p class="text-white text-sm lg:text-xl font-bold">
                 {{ playerName.playerTwo }} is the Winner
               </p>
             </div>
-            <div v-else-if="playerTwoState.matchPoint && !playerTwoState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-20">
-              <p class="text-white text-xl font-bold">
+            <div v-else-if="playerTwoState.matchPoint && !playerTwoState.winner" class="w-full flex flex-col justify-center items-center absolute bottom-5">
+              <p class="text-white text-sm lg:text-xl font-bold">
                 Match Point
               </p>
             </div>
@@ -177,8 +167,19 @@ const playerTwoState = computed(() => {
         </div>
       </div>
     </div>
-    <div class="h-screen bg-gray-100 landscape:hidden">
-      <h3>Rotate Your Phone</h3>
+    <div class="w-full bg-gray-100 dark:bg-slate-900 landscape:hidden min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="w-full flex flex-col items-center justify-center space-y-8">
+        <div
+          class="h-8 w-8 text-white"
+        >
+          <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h3 class="text-white text-center text-xl">
+          Rotate Your Phone
+        </h3>
+      </div>
     </div>
   </div>
 </template>
