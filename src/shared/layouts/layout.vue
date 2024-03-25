@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { shallowRef, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import LayoutDefault from '@/layouts/default.vue'
+import LayoutDefault from '@/shared/layouts/default.vue'
 
 const layout = shallowRef(LayoutDefault)
 const route = useRoute()
